@@ -5,20 +5,27 @@ const modalClose = Array.from(document.querySelectorAll('div.modal__close_times'
 
 modalMain.classList = 'modal modal_active';
 
-let mC1 = modalClose[0];
-let mc2 = modalClose[1];
+//let mC1 = modalClose[0];
+//let mc2 = modalClose[1];
 
 showSuccess.onclick = function () {
     modalSuccess.classList = 'modal modal_active';
     modalMain.classList = 'modal';
 }
 
-mC1.onclick = () => {
-    modalMain.classList = 'modal';
-}
+//mC1.onclick = () => {
+//    modalMain.classList = 'modal';
+//}
 
-mc2.onclick = () => {
-   modalSuccess.classList = 'modal';
-   modalMain.classList = 'modal';
-}
+//mc2.onclick = () => {
+//   modalSuccess.classList = 'modal';
+//   modalMain.classList = 'modal';
+//}
+
+modalClose.forEach(function (el) {
+   let p = el.closest('.modal');
+   el.onclick = function () {
+    p.className = 'modal';
+   }
+});
 
